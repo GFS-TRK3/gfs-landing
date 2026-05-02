@@ -37,6 +37,12 @@ function App() {
       setIsChanging(true);
       setTimeout(() => setIsChanging(false), 150);
     }
+    // Auto-scroll to bottom on mobile so the email input is visible
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }, 200);
+    }
   };
 
   const getButtonText = () => {
