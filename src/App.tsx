@@ -69,7 +69,8 @@ function App() {
         .from('information_requests')
         .insert([
           { 
-            email: email.trim().toLowerCase()
+            email: email.trim().toLowerCase(),
+            type: selectedAudience === 'businesses' ? 'business' : 'consumer'
           }
         ]);
 
