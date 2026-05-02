@@ -439,7 +439,7 @@
   }
 
   .horizon-glow {
-    bottom: 235px;
+    display: none;
   }
   
   .logo-area {
