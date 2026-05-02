@@ -58,8 +58,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* --- Hero Headline --- */
@@ -77,10 +82,9 @@
   align-items: center;
 }
 
-.hero-top-lines {
-}
+.hero-top-lines {}
 
-.hero-top-lines h1 + h1 {
+.hero-top-lines h1+h1 {
   margin-top: -6px;
 }
 
@@ -106,8 +110,13 @@
 }
 
 @keyframes fadeInDown {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Logo Area */
@@ -172,7 +181,7 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: clamp(13px, 1.3vw, 16px);
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.25);
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin: 0 0 clamp(8px, 1.2vh, 15px) 0;
@@ -470,8 +479,15 @@
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .micro-copy {
@@ -509,7 +525,7 @@
     min-height: 100vh;
     overflow-y: auto;
   }
-  
+
   .content-wrapper {
     transform: none;
     padding-top: 30px;
@@ -530,16 +546,16 @@
   .horizon-glow {
     display: none;
   }
-  
+
   .logo-area {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .logo-text-container {
     text-align: center;
   }
-  
+
   .email-capture {
     flex-direction: column;
     border-radius: 6px;
@@ -605,8 +621,13 @@
 }
 
 @keyframes slideLogoUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-30px) scale(0.95); }
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-30px) scale(0.95);
+  }
 }
 
 .content-wrapper.submitted .above-divider,
@@ -757,6 +778,7 @@
     opacity: 0;
     transform: translateY(12px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
