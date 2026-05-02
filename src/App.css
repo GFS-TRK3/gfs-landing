@@ -480,7 +480,7 @@
   .landing-container {
     height: auto !important;
     min-height: 100vh !important;
-    overflow-y: auto !important;
+    overflow-y: visible !important;
     overflow-x: hidden !important;
   }
 
