@@ -478,23 +478,24 @@
 /* Landscape Mode / Short Viewports */
 @media (max-height: 600px) {
   .landing-container {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
   .content-wrapper {
-    transform: none;
-    padding-top: 20px;
+    transform: none !important;
+    padding-top: 20px !important;
   }
 
   .footer-section {
-    transform: none;
-    margin-top: 0;
-    padding-bottom: 30px;
+    transform: none !important;
+    margin-top: 0 !important;
+    padding-bottom: 30px !important;
   }
 
   .horizon-glow {
-    display: none;
+    display: none !important;
   }
 }
