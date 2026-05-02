@@ -93,7 +93,7 @@ function App() {
         {/* New Hero Headline */}
         <div className="hero-headline">
           <h1 className="hero-title-main">BUSINESS SOFTWARE, REBUILT FOR SPEED</h1>
-          <h1 className="hero-title-sub">WITHOUT THE COST</h1>
+          <h1 className="hero-title-sub">WITHOUT THE PER-USER COST</h1>
         </div>
         {/* Logo Section */}
         <div className="logo-area">
@@ -111,7 +111,7 @@ function App() {
           </div>
           <div className="logo-text-container">
             <h1 className="logo-title">GROUND FORCE</h1>
-            <h2 className="logo-subtitle">SOFTWARE</h2>
+            <h2 className="logo-subtitle">SOFTWARE™</h2>
           </div>
         </div>
 
