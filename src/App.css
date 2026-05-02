@@ -38,15 +38,7 @@
 }
 
 .horizon-glow {
-  position: absolute;
-  bottom: 20vh;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: var(--primary-color);
-  box-shadow: 0 0 20px 5px var(--glow-spread-color), 0 0 40px 10px var(--glow-spread-color);
-  z-index: 2;
-  opacity: 0.5;
+  display: none;
 }
 
 /* --- Centered Hero Content Block --- */
