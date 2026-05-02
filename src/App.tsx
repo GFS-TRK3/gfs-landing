@@ -185,7 +185,7 @@ function App() {
           {status === 'success' && <p className="status-msg success">Success! You're on the list. Expect to receive an email by June 1, 2026</p>}
           {status === 'already' && <p className="status-msg success">You're already on the list, expect to receive an email by June 1, 2026.</p>}
           {status === 'error' && <p className="status-msg error">There was an error. Please try again.</p>}
-          <p className="micro-copy">No spam. Information only, sent one time only.</p>
+          <p className="micro-copy">No spam. One update. That’s it.</p>
         </form>
       </div>
     </div>
