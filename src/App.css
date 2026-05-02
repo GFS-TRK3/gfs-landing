@@ -6,15 +6,16 @@
 
 .landing-container {
   position: relative;
+  height: 100vh;
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   z-index: 1;
   background-color: var(--bg-color);
-  overflow-x: hidden;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -53,13 +54,15 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: clamp(40px, 5vh, 60px) 20px 20px;
+  padding: clamp(10px, 2vh, 30px) 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   animation: fadeIn 2s ease-out;
   box-sizing: border-box;
+  flex: 1;
 }
 
 @keyframes fadeIn {
@@ -70,14 +73,14 @@
 /* --- Hero Headline --- */
 .hero-headline {
   text-align: center;
-  margin-top: clamp(15px, 3vh, 50px);
-  margin-bottom: clamp(20px, 3vh, 40px);
+  margin-top: 0;
+  margin-bottom: clamp(10px, 1.5vh, 25px);
   animation: fadeInDown 1.5s ease-out;
 }
 
 .hero-title-main {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
   font-weight: 500;
   color: white;
   letter-spacing: 4px;
@@ -87,11 +90,11 @@
 
 .hero-title-sub {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4.5vw, 3.6rem);
   font-weight: 700;
   color: var(--primary-color);
   letter-spacing: 4px;
-  margin: 5px 0 0 0;
+  margin: 4px 0 0 0;
   text-shadow: 0 0 20px var(--glow-spread-color);
   line-height: 1.1;
 }
@@ -107,20 +110,20 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(15px, 2vw, 30px);
-  margin-bottom: clamp(25px, 4vh, 40px);
+  gap: clamp(10px, 1.5vw, 25px);
+  margin-bottom: clamp(15px, 2.5vh, 30px);
 }
 
 .logo-hex {
   position: relative;
-  width: clamp(90px, 12vw, 128px);
-  height: clamp(100px, 14vw, 144px);
+  width: clamp(75px, 10vw, 110px);
+  height: clamp(85px, 12vw, 125px);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Orbitron', sans-serif;
   font-weight: 800;
-  font-size: clamp(30px, 4vw, 45px);
+  font-size: clamp(26px, 3.5vw, 40px);
   color: white;
 }
 
@@ -141,7 +144,7 @@
 
 .logo-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(28px, 4.5vw, 54px);
+  font-size: clamp(24px, 4vw, 48px);
   font-weight: 700;
   letter-spacing: 4px;
   margin: 0;
@@ -151,7 +154,7 @@
 
 .logo-subtitle {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: clamp(14px, 2.2vw, 22px);
   color: var(--primary-color);
   letter-spacing: 6px;
   margin: 0;
@@ -161,26 +164,26 @@
 /* --- Subheadline --- */
 .subheadline {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 1px;
   text-align: center;
-  margin: 0 0 clamp(15px, 2vh, 30px) 0;
+  margin: 0 0 clamp(10px, 1.2vh, 20px) 0;
   max-width: 800px;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .subheadline-secondary {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
   font-weight: 400;
   color: rgba(0, 255, 136, 0.6);
   letter-spacing: 1px;
   text-align: center;
-  margin: 0 0 clamp(25px, 4vh, 40px) 0;
+  margin: 0 0 clamp(15px, 2vh, 28px) 0;
   max-width: 800px;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .subheadline-secondary .highlight-word {
@@ -192,8 +195,8 @@
 .divider {
   display: flex;
   align-items: center;
-  width: min(400px, 100%);
-  margin: 20px 0;
+  width: min(350px, 100%);
+  margin: 10px 0;
 }
 
 .divider-line {
@@ -207,29 +210,29 @@
 }
 
 .divider-hex {
-  width: 20px;
-  height: 20px;
-  margin: 0 15px;
+  width: 16px;
+  height: 16px;
+  margin: 0 12px;
 }
 
 /* Launch Info */
 .launching-text {
   font-family: 'Rajdhani', sans-serif;
   color: var(--primary-color);
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(0.9rem, 1.5vw, 1.3rem);
   font-weight: 600;
-  letter-spacing: 8px;
-  margin-bottom: 5px;
+  letter-spacing: 6px;
+  margin-bottom: 4px;
   text-transform: uppercase;
   text-shadow: 0 0 10px var(--glow-spread-color);
 }
 
 .launch-date {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(1.8rem, 4.5vw, 4.2rem);
+  font-size: clamp(1.6rem, 4vw, 3.6rem);
   font-weight: 800;
   letter-spacing: 4px;
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px var(--glow-spread-color);
 }
@@ -239,8 +242,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(12px, 2vw, 30px);
-  margin-bottom: clamp(35px, 6vh, 60px);
+  gap: clamp(10px, 1.8vw, 25px);
+  margin-bottom: clamp(15px, 2.5vh, 40px);
   width: 100%;
 }
 
@@ -251,11 +254,11 @@
   justify-content: center;
   background: rgba(0, 255, 136, 0.05);
   border: 1px solid rgba(0, 255, 136, 0.2);
-  padding: clamp(10px, 2vw, 20px) clamp(15px, 3vw, 30px);
+  padding: clamp(8px, 1.5vw, 16px) clamp(12px, 2.5vw, 25px);
   border-radius: 8px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  min-width: clamp(90px, 15vw, 130px);
+  min-width: clamp(80px, 12vw, 115px);
   box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.05);
   transition: all 0.3s ease;
 }
@@ -263,12 +266,12 @@
 .countdown-box:hover {
   border-color: rgba(0, 255, 136, 0.5);
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.2), inset 0 0 20px rgba(0, 255, 136, 0.1);
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .countdown-value {
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
   font-weight: 700;
   color: white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -277,11 +280,11 @@
 .countdown-label {
   font-family: 'Rajdhani', sans-serif;
   color: var(--primary-color);
-  font-size: clamp(12px, 1.5vw, 16px);
+  font-size: clamp(11px, 1.2vw, 14px);
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 /* --- Footer / Input Section --- */
@@ -290,8 +293,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px 0 60px;
+  padding: 10px 0 25px;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .email-capture-wrapper {
@@ -301,6 +305,7 @@
   width: 100%;
   max-width: 650px;
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .email-capture {
@@ -319,10 +324,10 @@
 .email-input {
   background: transparent;
   border: none;
-  padding: 15px 20px;
+  padding: 12px 18px;
   color: white;
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(15px, 1.8vw, 18px);
   font-weight: 500;
   flex: 1;
   outline: none;
@@ -338,10 +343,10 @@
   background: var(--primary-color);
   color: #000;
   border: none;
-  padding: 0 clamp(15px, 3vw, 30px);
+  padding: 0 clamp(12px, 2.5vw, 25px);
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(13px, 1.8vw, 16px);
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -370,16 +375,16 @@
   font-family: 'Rajdhani', sans-serif;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.5);
-  margin: 10px 0 0 0;
+  margin: 6px 0 0 0;
   text-align: center;
   letter-spacing: 1px;
 }
 
 .status-msg {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  margin: 10px 0 0 0;
+  margin: 6px 0 0 0;
   text-align: center;
   letter-spacing: 1px;
 }
@@ -396,6 +401,12 @@
 
 /* --- Responsive Breakpoints --- */
 @media (max-width: 768px) {
+  .landing-container {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+  
   .logo-area {
     flex-direction: column;
     text-align: center;
@@ -410,7 +421,7 @@
     border-radius: 6px;
     background: transparent;
     border: none;
-    gap: 12px;
+    gap: 10px;
   }
 
   .email-input {
@@ -418,17 +429,13 @@
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid var(--primary-color);
     border-radius: 4px;
-    padding: 16px;
+    padding: 14px;
   }
 
   .submit-btn {
     width: 100%;
-    padding: 16px;
+    padding: 14px;
     border-radius: 4px;
     border: 1px solid var(--primary-color);
-  }
-  
-  .horizon-glow {
-    bottom: 12vh;
   }
 }
