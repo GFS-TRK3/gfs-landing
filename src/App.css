@@ -427,6 +427,21 @@
     overflow-y: auto;
   }
   
+  .content-wrapper {
+    transform: none;
+    padding-top: 30px;
+  }
+
+  .footer-section {
+    transform: none;
+    margin-top: 0;
+    padding-bottom: 40px;
+  }
+
+  .horizon-glow {
+    bottom: 235px;
+  }
+  
   .logo-area {
     flex-direction: column;
     text-align: center;
@@ -457,5 +472,29 @@
     padding: 14px;
     border-radius: 4px;
     border: 1px solid var(--primary-color);
+  }
+}
+
+/* Landscape Mode / Short Viewports */
+@media (max-height: 600px) {
+  .landing-container {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .content-wrapper {
+    transform: none;
+    padding-top: 20px;
+  }
+
+  .footer-section {
+    transform: none;
+    margin-top: 0;
+    padding-bottom: 30px;
+  }
+
+  .horizon-glow {
+    display: none;
   }
 }
