@@ -1,36 +1,46 @@
-.landing-container {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+:root {
+  --primary-color: #00ff88;
+  --bg-color: #020604;
+  --glow-spread-color: rgba(0, 255, 136, 0.4);
 }
 
-/* --- Background & Grid --- */
+.landing-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* --- Background Layer --- */
 .background-wrapper {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   z-index: -1;
-  display: flex;
-  flex-direction: column;
+  pointer-events: none;
 }
 
 .sky {
-  flex: 1;
-  background: radial-gradient(circle at bottom, rgba(0, 255, 136, 0.1) 0%, transparent 60%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center bottom, rgba(0, 255, 136, 0.1) 0%, transparent 60%);
 }
 
 .horizon-glow {
   position: absolute;
-  bottom: calc(30vh - 200px);
-  width: 100vw;
+  bottom: 20vh;
+  left: 0;
+  width: 100%;
   height: 2px;
   background: var(--primary-color);
   box-shadow: 0 0 20px 5px var(--glow-spread-color), 0 0 40px 10px var(--glow-spread-color);
@@ -38,36 +48,50 @@
   opacity: 0.5;
 }
 
+/* --- Centered Hero Content Block --- */
+.content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(40px, 5vh, 60px) 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 2s ease-out;
+  box-sizing: border-box;
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-
-
-/* --- Top Header --- */
 /* --- Hero Headline --- */
 .hero-headline {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 40px;
+  margin-top: clamp(15px, 3vh, 50px);
+  margin-bottom: clamp(20px, 3vh, 40px);
   animation: fadeInDown 1.5s ease-out;
 }
 
 .hero-title-main {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 50px;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
   font-weight: 500;
   color: white;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   margin: 0;
   line-height: 1.2;
 }
 
 .hero-title-sub {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 60px;
+  font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 700;
   color: var(--primary-color);
   letter-spacing: 4px;
-  margin: 0;
+  margin: 5px 0 0 0;
   text-shadow: 0 0 20px var(--glow-spread-color);
   line-height: 1.1;
 }
@@ -77,44 +101,26 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Content Styling --- */
-.content-wrapper {
-  position: absolute;
-  top: 0;
-  bottom: 30vh;
-  left: 0;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 2s ease-out;
-  padding-top: 8vh;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 /* Logo Area */
 .logo-area {
   display: flex;
   align-items: center;
-  gap: 30px;
-  margin-bottom: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: clamp(15px, 2vw, 30px);
+  margin-bottom: clamp(25px, 4vh, 40px);
 }
 
 .logo-hex {
   position: relative;
-  width: 128px;
-  height: 144px;
+  width: clamp(90px, 12vw, 128px);
+  height: clamp(100px, 14vw, 144px);
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: 'Orbitron', sans-serif;
   font-weight: 800;
-  font-size: 45px;
+  font-size: clamp(30px, 4vw, 45px);
   color: white;
 }
 
@@ -130,11 +136,12 @@
 .logo-text-container {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .logo-title {
   font-family: 'Orbitron', sans-serif;
-  font-size: 58px;
+  font-size: clamp(28px, 4.5vw, 54px);
   font-weight: 700;
   letter-spacing: 4px;
   margin: 0;
@@ -144,9 +151,9 @@
 
 .logo-subtitle {
   font-family: 'Orbitron', sans-serif;
-  font-size: 25px;
+  font-size: clamp(16px, 2.5vw, 24px);
   color: var(--primary-color);
-  letter-spacing: 8px;
+  letter-spacing: 6px;
   margin: 0;
   font-weight: 500;
 }
@@ -154,24 +161,24 @@
 /* --- Subheadline --- */
 .subheadline {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 24px;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-align: center;
-  margin: 0 0 40px 0;
+  margin: 0 0 clamp(15px, 2vh, 30px) 0;
   max-width: 800px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .subheadline-secondary {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 21px;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
   font-weight: 400;
   color: rgba(0, 255, 136, 0.6);
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   text-align: center;
-  margin: -30px 0 40px 0;
+  margin: 0 0 clamp(25px, 4vh, 40px) 0;
   max-width: 800px;
   line-height: 1.4;
 }
@@ -185,8 +192,8 @@
 .divider {
   display: flex;
   align-items: center;
-  width: 400px;
-  margin: 30px 0;
+  width: min(400px, 100%);
+  margin: 20px 0;
 }
 
 .divider-line {
@@ -209,9 +216,9 @@
 .launching-text {
   font-family: 'Rajdhani', sans-serif;
   color: var(--primary-color);
-  font-size: 24px;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   font-weight: 600;
-  letter-spacing: 12px;
+  letter-spacing: 8px;
   margin-bottom: 5px;
   text-transform: uppercase;
   text-shadow: 0 0 10px var(--glow-spread-color);
@@ -219,10 +226,10 @@
 
 .launch-date {
   font-family: 'Orbitron', sans-serif;
-  font-size: 80px;
+  font-size: clamp(1.8rem, 4.5vw, 4.2rem);
   font-weight: 800;
   letter-spacing: 4px;
-  margin: 0;
+  margin: 0 0 30px 0;
   text-transform: uppercase;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 40px var(--glow-spread-color);
 }
@@ -230,21 +237,25 @@
 /* Countdown */
 .countdown-container {
   display: flex;
-  gap: 30px;
-  margin-top: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 30px);
+  margin-bottom: clamp(35px, 6vh, 60px);
+  width: 100%;
 }
 
 .countdown-box {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background: rgba(0, 255, 136, 0.05);
   border: 1px solid rgba(0, 255, 136, 0.2);
-  padding: 15px 25px;
+  padding: clamp(10px, 2vw, 20px) clamp(15px, 3vw, 30px);
   border-radius: 8px;
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
-  min-width: 120px;
+  min-width: clamp(90px, 15vw, 130px);
   box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.05);
   transition: all 0.3s ease;
 }
@@ -252,12 +263,12 @@
 .countdown-box:hover {
   border-color: rgba(0, 255, 136, 0.5);
   box-shadow: 0 0 15px rgba(0, 255, 136, 0.2), inset 0 0 20px rgba(0, 255, 136, 0.1);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .countdown-value {
   font-family: 'Orbitron', sans-serif;
-  font-size: 48px;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
   font-weight: 700;
   color: white;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
@@ -266,24 +277,20 @@
 .countdown-label {
   font-family: 'Rajdhani', sans-serif;
   color: var(--primary-color);
-  font-size: 16px;
+  font-size: clamp(12px, 1.5vw, 16px);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
   margin-top: 5px;
 }
 
 /* --- Footer / Input Section --- */
 .footer-section {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100vw;
-  height: calc(30vh - 200px);
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 40px;
+  align-items: center;
+  padding: 20px 0 60px;
   z-index: 10;
 }
 
@@ -291,10 +298,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 650px;
+  padding: 0 20px;
 }
 
 .email-capture {
   display: flex;
+  flex-direction: row;
   align-items: stretch;
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid var(--primary-color);
@@ -302,19 +313,21 @@
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
   animation: fadeInUp 1.5s ease-out;
+  width: 100%;
 }
 
 .email-input {
   background: transparent;
   border: none;
-  padding: 15px 25px;
+  padding: 15px 20px;
   color: white;
   font-family: 'Rajdhani', sans-serif;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 500;
-  width: 375px;
+  flex: 1;
   outline: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  min-width: 0;
 }
 
 .email-input::placeholder {
@@ -325,14 +338,15 @@
   background: var(--primary-color);
   color: #000;
   border: none;
-  padding: 0 30px;
+  padding: 0 clamp(15px, 3vw, 30px);
   font-family: 'Orbitron', sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-size: clamp(14px, 2vw, 18px);
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
 
 .submit-btn:hover {
@@ -354,7 +368,7 @@
 
 .micro-copy {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.5);
   margin: 10px 0 0 0;
   text-align: center;
@@ -363,7 +377,7 @@
 
 .status-msg {
   font-family: 'Rajdhani', sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   margin: 10px 0 0 0;
   text-align: center;
@@ -378,4 +392,43 @@
 .status-msg.error {
   color: #ff3e3e;
   text-shadow: 0 0 10px rgba(255, 62, 62, 0.4);
+}
+
+/* --- Responsive Breakpoints --- */
+@media (max-width: 768px) {
+  .logo-area {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo-text-container {
+    text-align: center;
+  }
+  
+  .email-capture {
+    flex-direction: column;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    gap: 12px;
+  }
+
+  .email-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 16px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+  }
+  
+  .horizon-glow {
+    bottom: 12vh;
+  }
 }
