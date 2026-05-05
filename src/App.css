@@ -190,7 +190,7 @@
 /* --- Value Grid & Cards --- */
 .guidance-text {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(11px, 1.2vw, 14px);
+  font-size: clamp(0.8rem, 1.2vw, 1.1rem);
   font-weight: 500;
   color: rgba(255, 255, 255, 0.45);
   letter-spacing: 1.5px;
@@ -200,7 +200,7 @@
 }
 
 .guidance-text.guidance-pulse {
-  font-size: clamp(13px, 1.4vw, 16px);
+  font-size: clamp(0.8rem, 1.2vw, 1.1rem);
   font-weight: 600;
   animation: guidancePulse 2.5s ease-in-out infinite;
 }
@@ -366,7 +366,7 @@
 
 .founders-hint {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(11px, 1.2vw, 14px);
+  font-size: clamp(0.8rem, 1.2vw, 1.1rem);
   font-weight: 600;
   color: #ffcc00;
   letter-spacing: 1.5px;
