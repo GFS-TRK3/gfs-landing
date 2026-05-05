@@ -648,6 +648,11 @@
     display: block;
   }
 
+  .title-software {
+    position: relative;
+    top: -2px;
+  }
+
   .value-card.awaiting {
     animation: cardPulseMobile 2.5s ease-in-out infinite;
   }

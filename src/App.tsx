@@ -231,7 +231,7 @@ function App() {
               {/* New Hero Headline */}
               <div className="hero-headline">
                 <div className="hero-top-lines">
-                  <h1 className="hero-title-sub">LANDSCAPING OPERATIONS SOFTWARE</h1>
+                  <h1 className="hero-title-sub">LANDSCAPING OPERATIONS <span className="title-software">SOFTWARE</span></h1>
                   <h1 className="hero-title-sub">REBUILT FOR SPEED</h1>
                 </div>
                 <h1 className="hero-title-main">WITHOUT THE PER-USER COST</h1>
