@@ -48,7 +48,7 @@ function App() {
   const getButtonText = () => {
     if (isSubmitting) return 'SENDING...';
     if (ctaState === 'empty') return 'Select your role to continue';
-    if (ctaState === 'partial' || ctaState === 'complete') return 'REQUEST DEMO';
+    if (ctaState === 'partial' || ctaState === 'complete') return 'JOIN THE WAITLIST';
     return 'Select your role to continue';
   };
 
@@ -161,9 +161,9 @@ function App() {
             </div>
 
             <div className="conf-text-section seq-1">
-              <p className="conf-main-text">Thank you for your interest in</p>
-              <p className="conf-main-text">Ground Force Software</p>
-              <p className="conf-sub-text">Your request to receive a demo has been submitted</p>
+              <p className="conf-main-text">You're in — welcome to the</p>
+              <p className="conf-main-text">Founders Club waitlist</p>
+              <p className="conf-sub-text">We'll be in touch soon with your early access details</p>
             </div>
 
             <div className="teaser-section seq-2">
@@ -172,7 +172,7 @@ function App() {
                 <ul className="teaser-list">
                   <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Save hours measuring remotely</li>
                   <li>• Request accurate estimates from local professionals</li>
-                  <li>• A community forum for ideas, insights, and real projects</li>
+                  <li>• Compare bids from verified local pros</li>
                 </ul>
               ) : (
                 <ul className="teaser-list">
@@ -186,8 +186,23 @@ function App() {
             {selectedAudience === 'owners' && (
               <p className="conf-supporting seq-3">Plan your project with confidence—before you ever commit</p>
             )}
-            <p className={`conf-expectation ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>You'll receive more details by June 1, 2026</p>
-            <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-5' : 'seq-4'}`}>Be among the first to see what's next</p>
+            <p className={`conf-expectation ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>Founders Club members lock in 50% off their subscription</p>
+            <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-5' : 'seq-4'}`}>
+              Know someone who'd want in?{' '}
+              <button 
+                className="share-link-btn"
+                onClick={() => {
+                  navigator.clipboard.writeText('https://www.groundforcesoftware.com');
+                  const btn = document.querySelector('.share-link-btn') as HTMLButtonElement;
+                  if (btn) {
+                    btn.textContent = '✓ Link Copied!';
+                    setTimeout(() => { btn.textContent = 'Copy Link'; }, 2000);
+                  }
+                }}
+              >
+                Copy Link
+              </button>
+            </p>
           </div>
         ) : (
           <>
@@ -211,7 +226,7 @@ function App() {
                   <h2 className="logo-subtitle">SOFTWARE™</h2>
                 </div>
               </div>
-              <p className="logo-tagline">Looking to elevate your business? Let GFS drive your success with personalized support</p>
+              <p className="logo-tagline">The all-in-one platform landscapers actually want to use</p>
 
               {/* New Hero Headline */}
               <div className="hero-headline">
@@ -270,6 +285,7 @@ function App() {
             {/* Launch Info */}
             <div className="launching-text">LAUNCHING</div>
             <h3 className="launch-date">JULY 1, 2026</h3>
+            <p className="founders-hint">Early sign-ups unlock Founders Club access</p>
 
             {/* Countdown */}
             <div className="countdown-container">
@@ -311,10 +327,10 @@ function App() {
                     {getButtonText()}
                   </button>
                 </div>
-                {status === 'error' && <p className="status-msg error">{!selectedAudience ? 'Please select an option above' : 'REQUEST DEMO'}</p>}
+                {status === 'error' && <p className="status-msg error">{!selectedAudience ? 'Please select an option above' : 'Please enter your email'}</p>}
                 {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">Tailored for service businesses</p>}
                 {selectedAudience === 'owners' && <p className="micro-copy tailored-text">Tailored for property owners</p>}
-                <p className="micro-copy">No spam. One update. That's it.</p>
+                <p className="micro-copy">One email. First look. Before everyone else.</p>
               </form>
             </div>
           </>
