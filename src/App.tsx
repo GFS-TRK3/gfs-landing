@@ -48,7 +48,7 @@ function App() {
   const getButtonText = () => {
     if (isSubmitting) return 'SENDING...';
     if (ctaState === 'empty') return 'Select your role to continue';
-    if (ctaState === 'partial') return 'Enter your email to continue';
+    if (ctaState === 'partial') return 'REQUEST DEMO';
     return selectedAudience === 'businesses' ? 'Get Business Access Details' : 'Get Project Access Details';
   };
 
@@ -192,14 +192,6 @@ function App() {
         ) : (
           <>
             <div className="above-divider">
-              {/* New Hero Headline */}
-              <div className="hero-headline">
-                <div className="hero-top-lines">
-                  <h1 className="hero-title-main">BUSINESS & PROPERTY SOFTWARE</h1>
-                  <h1 className="hero-title-main">REBUILT FOR SPEED</h1>
-                </div>
-                <h1 className="hero-title-sub">WITHOUT THE PER-USER COST</h1>
-              </div>
               {/* Logo Section */}
               <div className="logo-area">
                 <div className="logo-hex">
@@ -219,6 +211,16 @@ function App() {
                   <h2 className="logo-subtitle">SOFTWARE™</h2>
                 </div>
               </div>
+              <p className="logo-tagline">Looking to elevate your business? Let GFS drive your success with personalized support</p>
+
+              {/* New Hero Headline */}
+              <div className="hero-headline">
+                <div className="hero-top-lines">
+                  <h1 className="hero-title-sub">LANDSCAPING OPERATIONS SOFTWARE</h1>
+                  <h1 className="hero-title-sub">REBUILT FOR SPEED</h1>
+                </div>
+                <h1 className="hero-title-main">WITHOUT THE PER-USER COST</h1>
+              </div>
 
               {/* Value Proposition Grid */}
               <p className="guidance-text">Select how you’ll use GFS to continue</p>
@@ -227,11 +229,11 @@ function App() {
                   className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''}`}
                   onClick={() => handleAudienceChange('businesses')}
                 >
-                  <h3 className="card-title">For Service Businesses</h3>
+                  <h3 className="card-title">Service Businesses</h3>
                   <p className="card-desc">
-                    Estimate faster.<br />
-                    Schedule smarter.<br />
-                    Run your entire operation — without per-user pricing.
+                    Measure remotely, estimate faster<br />
+                    Schedule smarter<br />
+                    Run your entire operation — without per-user pricing
                   </p>
                   {selectedAudience === 'businesses' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
@@ -239,11 +241,11 @@ function App() {
                   className={`value-card ${selectedAudience === 'owners' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'owners' ? 'unselected' : ''}`}
                   onClick={() => handleAudienceChange('owners')}
                 >
-                  <h3 className="card-title">For Property Owners</h3>
+                  <h3 className="card-title">Property Owners</h3>
                   <p className="card-desc">
-                    Measure your property — if you want.<br />
-                    Request accurate estimates.<br />
-                    Plan your project with confidence.
+                    Find local professionals<br />
+                    Request accurate estimates<br />
+                    Plan your project with confidence
                   </p>
                   {selectedAudience === 'owners' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
@@ -287,40 +289,36 @@ function App() {
                 <span className="countdown-value">{pad(timeLeft.seconds)}</span>
                 <span className="countdown-label">Seconds</span>
               </div>
+            {/* Footer / Input Section */}
+            <div className="footer-section">
+              <form onSubmit={handleSubscribe} className="email-capture-wrapper">
+                <div className="email-capture">
+                  <input 
+                    type="email" 
+                    placeholder="ENTER YOUR EMAIL" 
+                    className="email-input" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    disabled={isSubmitting}
+                  />
+                  <button 
+                    type="submit" 
+                    className={`submit-btn cta-${ctaState} ${isChanging ? 'pulse-change' : ''}`} 
+                    disabled={isSubmitting || ctaState === 'empty'}
+                    onClick={handleCtaClick}
+                  >
+                    {getButtonText()}
+                  </button>
+                </div>
+                {status === 'error' && <p className="status-msg error">{!selectedAudience ? 'Please select an option above' : 'REQUEST DEMO'}</p>}
+                {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">Tailored for service businesses</p>}
+                {selectedAudience === 'owners' && <p className="micro-copy tailored-text">Tailored for property owners</p>}
+                <p className="micro-copy">No spam. One update. That's it.</p>
+              </form>
             </div>
           </>
         )}
       </div>
-
-      {/* Footer / Input Section */}
-      {!isSubmitted && (
-        <div className="footer-section">
-          <form onSubmit={handleSubscribe} className="email-capture-wrapper">
-            <div className="email-capture">
-              <input 
-                type="email" 
-                placeholder="ENTER YOUR EMAIL" 
-                className="email-input" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-              />
-              <button 
-                type="submit" 
-                className={`submit-btn cta-${ctaState} ${isChanging ? 'pulse-change' : ''}`} 
-                disabled={isSubmitting || ctaState === 'empty'}
-                onClick={handleCtaClick}
-              >
-                {getButtonText()}
-              </button>
-            </div>
-            {status === 'error' && <p className="status-msg error">{!selectedAudience ? 'Please select an option above' : 'Please enter your email to continue'}</p>}
-            {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">Tailored for service businesses</p>}
-            {selectedAudience === 'owners' && <p className="micro-copy tailored-text">Tailored for property owners</p>}
-            <p className="micro-copy">No spam. One update. That's it.</p>
-          </form>
-        </div>
-      )}
     </div>
   );
 }
