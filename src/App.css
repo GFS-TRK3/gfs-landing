@@ -639,7 +639,7 @@
   }
 
   100% {
-    transform: translateY(-30px) scale(0.95);
+    transform: translateY(-30px);
   }
 }
 
@@ -721,13 +721,19 @@
   line-height: 1.4;
 }
 
+.product-highlight {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-shadow: 0 0 8px var(--glow-spread-color);
+}
+
 .teaser-list li:last-child {
   margin-bottom: 0;
 }
 
 .conf-expectation {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 600;
   color: rgba(255, 255, 255, 0.65);
   letter-spacing: 1px;
@@ -737,7 +743,7 @@
 
 .conf-closing {
   font-family: 'Rajdhani', sans-serif;
-  font-size: clamp(13px, 1.2vw, 15px);
+  font-size: clamp(15px, 1.5vw, 18px);
   font-weight: 500;
   color: var(--primary-color);
   letter-spacing: 1px;

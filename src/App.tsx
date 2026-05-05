@@ -48,8 +48,8 @@ function App() {
   const getButtonText = () => {
     if (isSubmitting) return 'SENDING...';
     if (ctaState === 'empty') return 'Select your role to continue';
-    if (ctaState === 'partial') return 'REQUEST DEMO';
-    return selectedAudience === 'businesses' ? 'Get Business Access Details' : 'Get Project Access Details';
+    if (ctaState === 'partial' || ctaState === 'complete') return 'REQUEST DEMO';
+    return 'Select your role to continue';
   };
 
   const handleCtaClick = (e: React.MouseEvent) => {
@@ -162,32 +162,32 @@ function App() {
 
             <div className="conf-text-section seq-1">
               <p className="conf-main-text">Thank you for your interest in</p>
-              <p className="conf-main-text">Ground Force Software.</p>
-              <p className="conf-sub-text">Your request for more information has been received.</p>
+              <p className="conf-main-text">Ground Force Software</p>
+              <p className="conf-sub-text">Your request to receive a demo has been submitted</p>
             </div>
 
             <div className="teaser-section seq-2">
               <h3 className="teaser-title">What's coming:</h3>
               {selectedAudience === 'owners' ? (
                 <ul className="teaser-list">
-                  <li>• GFS Grid — measure your property on your terms</li>
+                  <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Save hours measuring remotely</li>
                   <li>• Request accurate estimates from local professionals</li>
                   <li>• A community forum for ideas, insights, and real projects</li>
                 </ul>
               ) : (
                 <ul className="teaser-list">
-                  <li>• GFS Grid — precision measuring, reimagined</li>
-                  <li>• Real-time project visualization</li>
+                  <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Save hours measuring remotely, send accurate estimates</li>
+                  <li>• Real-time project visualization in 2D or render in 3D</li>
                   <li>• A unified system for planning, estimating, and execution</li>
                 </ul>
               )}
             </div>
 
             {selectedAudience === 'owners' && (
-              <p className="conf-supporting seq-3">Plan your project with confidence—before you ever commit.</p>
+              <p className="conf-supporting seq-3">Plan your project with confidence—before you ever commit</p>
             )}
-            <p className={`conf-expectation ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>You'll receive more details by June 1, 2026.</p>
-            <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-5' : 'seq-4'}`}>You're among the first to see what's next.</p>
+            <p className={`conf-expectation ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>You'll receive more details by June 1, 2026</p>
+            <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-5' : 'seq-4'}`}>Be among the first to see what's next</p>
           </div>
         ) : (
           <>
@@ -289,6 +289,7 @@ function App() {
                 <span className="countdown-value">{pad(timeLeft.seconds)}</span>
                 <span className="countdown-label">Seconds</span>
               </div>
+            </div>
             {/* Footer / Input Section */}
             <div className="footer-section">
               <form onSubmit={handleSubscribe} className="email-capture-wrapper">
