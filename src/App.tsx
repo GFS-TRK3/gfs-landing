@@ -13,7 +13,7 @@ function App() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'already'>('idle');
-  const [selectedAudience, setSelectedAudience] = useState<'businesses' | 'owners' | null>('businesses');
+  const [selectedAudience, setSelectedAudience] = useState<'businesses' | 'owners' | null>(null);
   const [isChanging, setIsChanging] = useState(false);
   const isValidEmail = (emailStr: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailStr);
@@ -238,13 +238,13 @@ function App() {
               </div>
 
               {/* Value Proposition Grid */}
-              <p className="guidance-text">Select how you’ll use GFS to continue</p>
+              <p className={`guidance-text ${!selectedAudience ? 'guidance-pulse' : ''}`}>Which best describes you?</p>
               <div className="value-grid">
                 <div 
-                  className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''}`}
+                  className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('businesses')}
                 >
-                  <h3 className="card-title">Service Businesses</h3>
+                  <h3 className="card-title">Service Business</h3>
                   <p className="card-desc">
                     Measure remotely, estimate faster<br />
                     Schedule smarter<br />
@@ -253,10 +253,10 @@ function App() {
                   {selectedAudience === 'businesses' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
                 <div 
-                  className={`value-card ${selectedAudience === 'owners' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'owners' ? 'unselected' : ''}`}
+                  className={`value-card ${selectedAudience === 'owners' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'owners' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('owners')}
                 >
-                  <h3 className="card-title">Property Owners</h3>
+                  <h3 className="card-title">Property Owner</h3>
                   <p className="card-desc">
                     Find local professionals<br />
                     Request accurate estimates<br />
@@ -312,7 +312,7 @@ function App() {
                 <div className="email-capture">
                   <input 
                     type="email" 
-                    placeholder="ENTER YOUR EMAIL" 
+                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : 'ENTER YOUR EMAIL'} 
                     className="email-input" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
