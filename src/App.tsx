@@ -314,7 +314,7 @@ function App() {
             {/* Launch Info */}
             <div className="launching-text">LAUNCHING</div>
             <h3 className="launch-date">JULY 1, 2026</h3>
-            {selectedAudience !== 'owners' && <p className="founders-hint">Early sign-ups unlock Founders Club access</p>}
+            {selectedAudience === 'businesses' && <p className="founders-hint">Early sign-ups unlock Founders Club access</p>}
 
             {/* Countdown */}
             <div className="countdown-container">
