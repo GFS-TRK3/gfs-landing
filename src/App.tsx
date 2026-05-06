@@ -314,7 +314,7 @@ function App() {
             {/* Launch Info */}
             <div className="launching-text">LAUNCHING</div>
             <h3 className="launch-date">JULY 1, 2026</h3>
-            <p className="founders-hint">Early sign-ups unlock Founders Club access</p>
+            {selectedAudience !== 'owners' && <p className="founders-hint">Early sign-ups unlock Founders Club access</p>}
 
             {/* Countdown */}
             <div className="countdown-container">
@@ -357,9 +357,9 @@ function App() {
                   </button>
                 </div>
                 {status === 'error' && <p className="status-msg error">{!selectedAudience ? 'Please select an option above' : 'Please enter your email'}</p>}
-                {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">Tailored for service businesses</p>}
+                {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">TAILORED FOR OUTDOOR SERVICE PROVIDERS</p>}
                 {selectedAudience === 'owners' && <p className="micro-copy tailored-text">Tailored for property owners</p>}
-                <p className="micro-copy">One email. First look. Before everyone else.</p>
+                <p className="micro-copy">One email. First look. No spam.</p>
               </form>
             </div>
           </>
