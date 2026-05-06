@@ -161,34 +161,63 @@ function App() {
             </div>
 
             <div className="conf-text-section seq-1">
-              <p className="conf-main-text">You're in — welcome to the</p>
-              <p className="conf-main-text">Founders Club waitlist</p>
+              {selectedAudience === 'owners' ? (
+                <>
+                  <p className="conf-main-text">You're in — welcome to the</p>
+                  <p className="conf-main-text">GFS early access list</p>
+                </>
+              ) : (
+                <>
+                  <p className="conf-main-text">You're in — welcome to the</p>
+                  <p className="conf-main-text">Founders Club waitlist</p>
+                </>
+              )}
               <p className="conf-sub-text">We'll be in touch soon with your early access details</p>
             </div>
 
             <div className="teaser-section seq-2">
               <h3 className="teaser-title">What's coming:</h3>
               {selectedAudience === 'owners' ? (
-                <ul className="teaser-list">
-                  <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Save hours measuring remotely</li>
-                  <li>• Request accurate estimates from local professionals</li>
-                  <li>• Compare bids from verified local pros</li>
-                </ul>
+                <>
+                  <ul className="teaser-list">
+                    <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Measure, plan, and visualize your property</li>
+                    <li>• Connect with trusted local professionals for accurate estimates</li>
+                    <li>• Compare project options and move forward with confidence</li>
+                  </ul>
+                  <div className="teaser-divider"></div>
+                  <ul className="teaser-list">
+                    <li>• <span className="product-highlight">GFS NETWORK</span> — The exclusive landscaping network for property owners and pros</li>
+                    <li>• Discover trusted local professionals for your next project</li>
+                    <li>• Connect, explore ideas, and plan with confidence</li>
+                  </ul>
+                </>
               ) : (
-                <ul className="teaser-list">
-                  <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Save hours measuring remotely, send accurate estimates</li>
-                  <li>• Real-time project visualization in 2D or render in 3D</li>
-                  <li>• A unified system for planning, estimating, and execution</li>
-                </ul>
+                <>
+                  <ul className="teaser-list">
+                    <li>• <span className="product-highlight">GFS LANDSCAPING GRID</span> — Save hours measuring remotely, send accurate estimates</li>
+                    <li>• Real-time project visualization in 2D or render in 3D</li>
+                    <li>• Streamline measuring, estimating, and project planning in one system</li>
+                  </ul>
+                  <div className="teaser-divider"></div>
+                  <ul className="teaser-list">
+                    <li>• <span className="product-highlight">GFS NETWORK</span> — The exclusive landscaping network for property owners and pros</li>
+                    <li>• List your business in the GFS directory for FREE</li>
+                    <li>• Connect with property owners and professionals in your market</li>
+                  </ul>
+                </>
               )}
             </div>
 
             {selectedAudience === 'owners' && (
               <p className="conf-supporting seq-3">Plan your project with confidence—before you ever commit</p>
             )}
-            <p className={`conf-expectation ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>Founders Club members lock in 50% off their subscription</p>
-            <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-5' : 'seq-4'}`}>
-              Know someone who'd want in?{' '}
+            
+            {selectedAudience === 'businesses' && (
+              <p className="conf-expectation seq-3">Founders Club members lock in 50% off their subscription</p>
+            )}
+
+            <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>
+              {selectedAudience === 'businesses' ? 'SHARE WITH YOUR CUSTOMERS' : 'SHARE WITH YOUR LANDSCAPER'}{' '}
               <button 
                 className="share-link-btn"
                 onClick={() => {
