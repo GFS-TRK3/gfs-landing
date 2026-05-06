@@ -277,7 +277,7 @@ function App() {
                   <p className="card-desc">
                     Measure remotely, estimate faster<br />
                     Schedule smarter<br />
-                    Run your entire operation — without per-user pricing
+                    Grow your business with personalized support
                   </p>
                   {selectedAudience === 'businesses' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
