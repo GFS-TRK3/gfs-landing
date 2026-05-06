@@ -46,7 +46,7 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: clamp(10px, 2vh, 30px) 20px;
+  padding: clamp(30px, 5vh, 60px) 20px clamp(10px, 2vh, 30px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,6 +56,8 @@
   box-sizing: border-box;
   flex: 1;
   gap: clamp(10px, 2vh, 30px);
+  transform: scale(0.90);
+  transform-origin: center center;
 }
 
 @keyframes fadeIn {
