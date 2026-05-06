@@ -273,7 +273,7 @@ function App() {
                   className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('businesses')}
                 >
-                  <h3 className="card-title">Service Business</h3>
+                  <h3 className="card-title">Service Provider</h3>
                   <p className="card-desc">
                     Measure remotely, estimate faster<br />
                     Schedule smarter<br />
