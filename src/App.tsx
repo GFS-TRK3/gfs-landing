@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { supabase } from './supabase';
+import gfsLogo from './assets/GFS_logo.png';
 
 interface TimeLeft {
   days: number;
@@ -131,6 +132,15 @@ function App() {
 
   return (
     <div className="landing-container">
+      {/* SVG Filter for thinning the logo outline */}
+      <svg className="hidden-filter-svg" aria-hidden="true">
+        <defs>
+          <filter id="erode-filter">
+            <feMorphology operator="erode" radius="0.4" in="SourceGraphic" />
+          </filter>
+        </defs>
+      </svg>
+
       {/* Background layer */}
       <div className="background-wrapper">
         <div className="sky"></div>
@@ -141,23 +151,9 @@ function App() {
       <div className={`content-wrapper ${isSubmitted ? 'submitted' : ''}`}>
         {isSubmitted ? (
           <div className="confirmation-wrapper">
-            <div className="logo-area logo-submitted">
-              <div className="logo-hex">
-                <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
-                  <path 
-                    d="M50 2.5 L97.5 30 L97.5 85 L50 112.5 L2.5 85 L2.5 30 Z" 
-                    fill="none" 
-                    stroke="#00ff88" 
-                    strokeWidth="4" 
-                    strokeLinejoin="round" 
-                  />
-                </svg>
-                GFS
-              </div>
-              <div className="logo-text-container">
-                <h1 className="logo-title">GROUND FORCE</h1>
-                <h2 className="logo-subtitle">SOFTWARE™</h2>
-              </div>
+            <div className="logo-area logo-submitted logo-tm-container">
+              <img src={gfsLogo} alt="Ground Force Software Logo" className="logo-image" />
+              <span className="logo-tm">™</span>
             </div>
 
             <div className="conf-text-section seq-1">
@@ -237,23 +233,9 @@ function App() {
           <>
             <div className="above-divider">
               {/* Logo Section */}
-              <div className="logo-area">
-                <div className="logo-hex">
-                  <svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
-                    <path 
-                      d="M50 2.5 L97.5 30 L97.5 85 L50 112.5 L2.5 85 L2.5 30 Z" 
-                      fill="none" 
-                      stroke="#00ff88" 
-                      strokeWidth="4" 
-                      strokeLinejoin="round" 
-                    />
-                  </svg>
-                  GFS
-                </div>
-                <div className="logo-text-container">
-                  <h1 className="logo-title">GROUND FORCE</h1>
-                  <h2 className="logo-subtitle">SOFTWARE™</h2>
-                </div>
+              <div className="logo-area logo-tm-container">
+                <img src={gfsLogo} alt="Ground Force Software Logo" className="logo-image" />
+                <span className="logo-tm">™</span>
               </div>
               <p className="logo-tagline">The all-in-one platform landscapers actually want to use</p>
 

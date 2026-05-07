@@ -130,65 +130,38 @@
   margin: 0;
 }
 
-.logo-hex {
-  position: relative;
-  width: clamp(60px, 8vw, 90px);
-  height: clamp(70px, 9vw, 105px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 800;
-  font-size: clamp(22px, 3vw, 34px);
-  color: white;
+.logo-image {
+  width: clamp(420px, 52vw, 825px);
+  height: auto;
+  filter: url(#erode-filter) hue-rotate(-11deg) drop-shadow(0 0 15px var(--glow-spread-color));
+  display: block;
 }
 
-.logo-hex svg {
+.hidden-filter-svg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 0 10px var(--primary-color));
-  animation: logoPulse 4s ease-in-out infinite;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 
-@keyframes logoPulse {
-
-  0%,
-  100% {
-    filter: drop-shadow(0 0 8px var(--primary-color));
-  }
-
-  50% {
-    filter: drop-shadow(0 0 20px var(--primary-color));
-  }
+.logo-tm-container {
+  position: relative;
+  display: inline-flex;
 }
 
-.logo-text-container {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.logo-title {
+.logo-tm {
+  position: absolute;
+  right: 27.5%;
+  bottom: 23%;
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(20px, 3.5vw, 40px);
-  font-weight: 700;
-  letter-spacing: 3px;
-  margin: 0;
-  line-height: 1.1;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.4), 0 0 20px var(--glow-spread-color), 0 0 35px var(--glow-spread-color);
-}
-
-.logo-subtitle {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(12px, 1.8vw, 18px);
+  font-size: clamp(8px, 1.2vw, 18px);
   color: var(--primary-color);
-  letter-spacing: 4px;
-  margin: 0;
-  font-weight: 500;
+  font-weight: 700;
+  pointer-events: none;
+  text-shadow: 0 0 10px var(--glow-spread-color);
 }
+
 
 .logo-tagline {
   font-family: 'Rajdhani', sans-serif;
@@ -196,7 +169,7 @@
   font-weight: 500;
   color: white;
   letter-spacing: 2px;
-  margin: -12px 0 0 0;
+  margin: -5px 0 0 0;
   max-width: 850px;
   line-height: 1.2;
   text-transform: uppercase;
@@ -682,12 +655,14 @@
   }
 
   .logo-area {
-    flex-direction: column;
-    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  .logo-text-container {
-    text-align: center;
+  .logo-image {
+    width: 95%;
+    max-width: 600px;
   }
 
   .email-capture {
