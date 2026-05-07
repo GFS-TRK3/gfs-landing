@@ -48,9 +48,9 @@ function App() {
 
   const getButtonText = () => {
     if (isSubmitting) return 'SENDING...';
-    if (ctaState === 'empty') return 'Select your role to continue';
+    if (ctaState === 'empty') return 'Request More Information';
     if (ctaState === 'partial' || ctaState === 'complete') return 'JOIN THE WAITLIST';
-    return 'Select your role to continue';
+    return 'Request More Information';
   };
 
   const handleCtaClick = (e: React.MouseEvent) => {
