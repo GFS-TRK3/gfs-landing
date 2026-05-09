@@ -75,7 +75,7 @@ function App() {
       const { error } = await supabase
         .from('information_requests')
         .insert([
-          { 
+          {
             email: email.trim().toLowerCase(),
             type: selectedAudience === 'businesses' ? 'business' : 'consumer'
           }
@@ -136,11 +136,10 @@ function App() {
       <svg className="hidden-filter-svg" aria-hidden="true">
         <defs>
           <filter id="erode-filter">
-            <feMorphology operator="erode" radius="0.4" in="SourceGraphic" />
+            <feMorphology operator="erode" radius="0.5" in="SourceGraphic" />
           </filter>
         </defs>
       </svg>
-
       {/* Background layer */}
       <div className="background-wrapper">
         <div className="sky"></div>
@@ -207,14 +206,14 @@ function App() {
             {selectedAudience === 'owners' && (
               <p className="conf-supporting seq-3">Plan your project with confidence—before you ever commit</p>
             )}
-            
+
             {selectedAudience === 'businesses' && (
               <p className="conf-expectation seq-3">Founders Club members lock in 50% off their subscription</p>
             )}
 
             <p className={`conf-closing ${selectedAudience === 'owners' ? 'seq-4' : 'seq-3'}`}>
               {selectedAudience === 'businesses' ? 'SHARE WITH YOUR CUSTOMERS' : 'SHARE WITH YOUR LANDSCAPER'}{' '}
-              <button 
+              <button
                 className="share-link-btn"
                 onClick={() => {
                   navigator.clipboard.writeText('https://www.groundforcesoftware.com');
@@ -251,7 +250,7 @@ function App() {
               {/* Value Proposition Grid */}
               <p className={`guidance-text ${!selectedAudience ? 'guidance-pulse' : ''}`}>Which best describes you?</p>
               <div className="value-grid">
-                <div 
+                <div
                   className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('businesses')}
                 >
@@ -263,7 +262,7 @@ function App() {
                   </p>
                   {selectedAudience === 'businesses' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
-                <div 
+                <div
                   className={`value-card ${selectedAudience === 'owners' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'owners' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('owners')}
                 >
@@ -282,12 +281,12 @@ function App() {
             <div className="divider">
               <div className="divider-line left"></div>
               <svg className="divider-hex" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M50 2.5 L97.5 30 L97.5 85 L50 112.5 L2.5 85 L2.5 30 Z" 
-                  fill="none" 
-                  stroke="#00ff88" 
-                  strokeWidth="6" 
-                  strokeLinejoin="round" 
+                <path
+                  d="M50 2.5 L97.5 30 L97.5 85 L50 112.5 L2.5 85 L2.5 30 Z"
+                  fill="none"
+                  stroke="#00ff88"
+                  strokeWidth="6"
+                  strokeLinejoin="round"
                 />
               </svg>
               <div className="divider-line right"></div>
@@ -321,17 +320,17 @@ function App() {
             <div className="footer-section">
               <form onSubmit={handleSubscribe} className="email-capture-wrapper">
                 <div className="email-capture">
-                  <input 
-                    type="email" 
-                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : 'ENTER YOUR EMAIL'} 
-                    className="email-input" 
+                  <input
+                    type="email"
+                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : 'ENTER YOUR EMAIL'}
+                    className="email-input"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isSubmitting}
                   />
-                  <button 
-                    type="submit" 
-                    className={`submit-btn cta-${ctaState} ${isChanging ? 'pulse-change' : ''}`} 
+                  <button
+                    type="submit"
+                    className={`submit-btn cta-${ctaState} ${isChanging ? 'pulse-change' : ''}`}
                     disabled={isSubmitting || ctaState === 'empty'}
                     onClick={handleCtaClick}
                   >
