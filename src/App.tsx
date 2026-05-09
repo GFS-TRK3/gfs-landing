@@ -237,7 +237,7 @@ function App() {
                 <img src={gfsLogo} alt="Ground Force Software Logo" className="logo-image" />
                 <span className="logo-tm">™</span>
               </div>
-              <p className="logo-tagline">The all-in-one platform landscapers actually want to use</p>
+              <p className="logo-tagline">THE ALL-IN-ONE PLATFORM TO DRIVE YOUR GROWTH<br />WITHOUT HEDGING YOUR REVENUE</p>
 
               {/* New Hero Headline */}
               <div className="hero-headline">
