@@ -238,29 +238,30 @@ function App() {
                 <img src={gfsLogo} alt="Ground Force Software Logo" className="logo-image" />
                 <span className="logo-tm">™</span>
               </div>
-              <p className="logo-tagline">THE ALL-IN-ONE PLATFORM TO DRIVE YOUR GROWTH<br />WITHOUT HEDGING YOUR REVENUE</p>
+              <p className="logo-tagline">One platform. More profit. Less software.</p>
 
               {/* New Hero Headline */}
               <div className="hero-headline">
                 <div className="hero-top-lines">
-                  <h1 className="hero-title-sub">LANDSCAPING OPERATIONS <span className="title-software">SOFTWARE</span></h1>
-                  <h1 className="hero-title-sub">REBUILT FOR SPEED</h1>
+                  <h1 className="hero-title-sub">RUN YOUR ENTIRE LANDSCAPING BUSINESS</h1>
+                  <h1 className="hero-title-sub">FROM ONE PLATFORM</h1>
                 </div>
                 <h1 className="hero-title-main">WITHOUT THE PER-USER COST</h1>
               </div>
 
               {/* Value Proposition Grid */}
-              <p className={`guidance-text ${!selectedAudience ? 'guidance-pulse' : ''}`}>Which best describes you?</p>
+              <p className={`guidance-text ${!selectedAudience ? 'guidance-pulse' : ''}`}>CLICK WHICH BEST DESCRIBES YOU</p>
               <div className="value-grid">
                 <div
                   className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('businesses')}
                 >
-                  <h3 className="card-title">Service Provider</h3>
+                  <h3 className="card-title">LANDSCAPING PRO</h3>
                   <p className="card-desc">
-                    Measure remotely, estimate faster<br />
-                    Schedule smarter<br />
-                    Grow your business with personalized support
+                    &#10003; Replace multiple subscriptions<br />
+                    &#10003; Measure &amp; estimate remotely<br />
+                    &#10003; Schedule crews<br />
+                    &#10003; Grow with your community
                   </p>
                   {selectedAudience === 'businesses' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
@@ -268,11 +269,12 @@ function App() {
                   className={`value-card ${selectedAudience === 'owners' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'owners' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('owners')}
                 >
-                  <h3 className="card-title">Property Owner</h3>
+                  <h3 className="card-title">HOMEOWNER</h3>
                   <p className="card-desc">
-                    Find local professionals<br />
-                    Request accurate estimates<br />
-                    Plan your project with confidence
+                    &#10003; Find trusted local pros<br />
+                    &#10003; Request estimates<br />
+                    &#10003; Track projects<br />
+                    &#10003; Join your local community
                   </p>
                   {selectedAudience === 'owners' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
