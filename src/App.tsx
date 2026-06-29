@@ -10,6 +10,9 @@ interface TimeLeft {
   seconds: number;
 }
 
+const launchDate = new Date('2026-08-01T00:00:00');
+const launchDateLabel = 'AUGUST 1, 2026';
+
 function App() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -99,9 +102,8 @@ function App() {
   };
 
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date('2026-07-01T00:00:00');
     const now = new Date();
-    const difference = targetDate.getTime() - now.getTime();
+    const difference = launchDate.getTime() - now.getTime();
 
     if (difference <= 0) {
       return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -294,7 +296,7 @@ function App() {
 
             {/* Launch Info */}
             <div className="launching-text">LAUNCHING</div>
-            <h3 className="launch-date">JULY 1, 2026</h3>
+            <h3 className="launch-date">{launchDateLabel}</h3>
             {selectedAudience === 'businesses' && <p className="founders-hint">Early sign-ups unlock Founders Club access</p>}
 
             {/* Countdown */}
