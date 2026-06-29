@@ -490,6 +490,14 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
+.email-input.locked {
+  cursor: pointer;
+}
+
+.email-input.locked::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
 .submit-btn {
   background: transparent;
   color: var(--primary-color);
@@ -618,6 +626,11 @@
 .status-msg.success {
   color: var(--primary-color);
   text-shadow: 0 0 10px var(--glow-spread-color);
+}
+
+.status-msg.prompt {
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.18);
 }
 
 .status-msg.error {

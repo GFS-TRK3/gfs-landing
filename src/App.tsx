@@ -16,7 +16,7 @@ const launchDateLabel = 'AUGUST 1, 2026';
 function App() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'already'>('idle');
+  const [status, setStatus] = useState<'idle' | 'success' | 'error' | 'already' | 'needsSelection'>('idle');
   const [selectedAudience, setSelectedAudience] = useState<'businesses' | 'owners' | null>(null);
   const [isChanging, setIsChanging] = useState(false);
   const isValidEmail = (emailStr: string) => {
@@ -39,6 +39,9 @@ function App() {
     if (selectedAudience !== audience) {
       setSelectedAudience(audience);
       setIsChanging(true);
+      if (status === 'needsSelection') {
+        setStatus('idle');
+      }
       setTimeout(() => setIsChanging(false), 150);
     }
     // Auto-scroll to bottom on mobile (portrait or landscape) so the email input is visible
@@ -67,10 +70,13 @@ function App() {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!selectedAudience) {
+      setStatus('needsSelection');
+      return;
+    }
+    if (!isValidEmail(email)) {
       setStatus('error');
       return;
     }
-    if (!isValidEmail(email)) return;
 
     setIsSubmitting(true);
     setStatus('idle');
@@ -118,6 +124,26 @@ function App() {
   };
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+
+  const handleEmailAttempt = (e: React.MouseEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement>) => {
+    if (selectedAudience) return;
+
+    setStatus('needsSelection');
+    e.currentTarget.blur();
+  };
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!selectedAudience) {
+      setStatus('needsSelection');
+      return;
+    }
+
+    if (status === 'error' || status === 'needsSelection') {
+      setStatus('idle');
+    }
+
+    setEmail(e.target.value);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -326,10 +352,13 @@ function App() {
                 <div className="email-capture">
                   <input
                     type="email"
-                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : 'ENTER YOUR EMAIL'}
-                    className="email-input"
+                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : selectedAudience === 'owners' ? 'ENTER YOUR EMAIL' : 'SELECT AN OPTION ABOVE FIRST'}
+                    className={`email-input ${!selectedAudience ? 'locked' : ''}`}
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={handleEmailChange}
+                    onClick={handleEmailAttempt}
+                    onFocus={handleEmailAttempt}
+                    readOnly={!selectedAudience}
                     disabled={isSubmitting}
                   />
                   <button
@@ -341,7 +370,8 @@ function App() {
                     {getButtonText()}
                   </button>
                 </div>
-                {status === 'error' && <p className="status-msg error">{!selectedAudience ? 'Please select an option above' : 'Please enter your email'}</p>}
+                {status === 'needsSelection' && <p className="status-msg prompt">Choose the option above that fits you best first.</p>}
+                {status === 'error' && <p className="status-msg error">Please enter your email.</p>}
                 {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">TAILORED FOR OUTDOOR SERVICE PROVIDERS</p>}
                 {selectedAudience === 'owners' && <p className="micro-copy tailored-text">Tailored for property owners</p>}
                 <p className="micro-copy">One email. First look. No spam.</p>
