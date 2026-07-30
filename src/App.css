@@ -1567,6 +1567,148 @@
 
 }
 
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 950px) {
+  .landing-container {
+    height: auto;
+    min-height: 100dvh;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .content-wrapper:not(.submitted) {
+    display: flex;
+    width: min(100%, 900px);
+    height: auto;
+    min-height: 0;
+    flex: none;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 20px 22px 24px;
+    overflow: visible;
+  }
+
+  .content-wrapper:not(.submitted) .above-divider {
+    align-self: auto;
+    height: auto;
+  }
+
+  .content-wrapper:not(.submitted) .logo-area {
+    flex: none;
+  }
+
+  .content-wrapper:not(.submitted) .logo-image {
+    height: 140px;
+    transform: none;
+  }
+
+  .hero-headline {
+    margin-top: 20px;
+  }
+
+  .hero-title-software {
+    font-size: 34px;
+  }
+
+  .hero-title-speed {
+    font-size: 46px;
+  }
+
+  .hero-title-cost {
+    font-size: 14px;
+  }
+
+  .guidance-text,
+  .guidance-text.guidance-pulse {
+    margin-top: 18px;
+    font-size: 13px;
+  }
+
+  .value-grid {
+    flex-direction: row;
+    height: 150px;
+    gap: 24px;
+    margin: 16px 0 0;
+  }
+
+  .value-card {
+    padding: 18px 22px;
+  }
+
+  .card-title {
+    font-size: 27px;
+    margin-bottom: 5px;
+  }
+
+  .card-list {
+    font-size: 14px;
+    line-height: 1.18;
+  }
+
+  .launch-stack {
+    gap: 8px;
+  }
+
+  .launching-text {
+    margin-top: 12px;
+    font-size: 11px;
+  }
+
+  .launch-date {
+    font-size: 40px;
+  }
+
+  .countdown-container {
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .countdown-box {
+    width: 84px;
+    height: 62px;
+  }
+
+  .countdown-value {
+    font-size: 27px;
+  }
+
+  .countdown-label {
+    font-size: 9px;
+  }
+
+  .footer-section {
+    padding: 0 !important;
+  }
+
+  .email-capture-wrapper {
+    max-width: var(--composition-width);
+  }
+
+  .email-capture {
+    min-height: 48px;
+  }
+
+  .email-input {
+    font-size: 14px;
+  }
+
+  .submit-btn {
+    min-width: 260px;
+    font-size: 12px;
+  }
+
+  .micro-copy {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 650px) {
+  .value-grid {
+    flex-direction: column;
+    height: 270px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .content-wrapper,
   .value-card,
