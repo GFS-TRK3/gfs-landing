@@ -1061,6 +1061,7 @@
 .hero-headline {
   width: 100%;
   margin-top: clamp(7px, 1.2vh, 11px);
+  transform: translateY(-10px);
 }
 
 .hero-title-software,
@@ -1083,6 +1084,7 @@
   color: var(--primary-color);
   font-size: clamp(37px, 7vh, 68px);
   letter-spacing: clamp(1px, 0.26vw, 3px);
+  transform: translateY(10px);
   text-shadow: 0 0 20px rgba(0, 255, 136, 0.35);
 }
 
@@ -1097,6 +1099,7 @@
   font-size: clamp(12px, 2vh, 19px);
   font-weight: 600;
   letter-spacing: clamp(2px, 0.35vw, 4px);
+  transform: translateY(10px);
 }
 
 .hero-title-cost::before,
