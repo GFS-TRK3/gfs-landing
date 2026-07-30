@@ -1358,10 +1358,11 @@
 
 @media (max-width: 768px) {
   .content-wrapper:not(.submitted) {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto auto;
+    justify-content: initial;
     padding: 5px 10px;
-    gap: 0;
+    gap: 10px;
   }
 
   .content-wrapper:not(.submitted) .above-divider {
@@ -1371,6 +1372,7 @@
   .content-wrapper:not(.submitted) .logo-image {
     width: auto;
     height: clamp(112px, 17vh, 138px);
+    transform: translateY(5.5px) scale(1.25);
   }
 
   .logo-tagline-frame {
@@ -1420,6 +1422,7 @@
     height: clamp(190px, 27vh, 220px);
     gap: 8px;
     margin-top: 10px;
+    margin-bottom: 0;
   }
 
   .value-card {
@@ -1464,7 +1467,8 @@
   }
 
   .launch-date {
-    font-size: clamp(22px, 4.1vh, 30px);
+    font-size: clamp(21px, 3.7vh, 30px);
+    white-space: nowrap;
   }
 
   .launch-stack {
@@ -1478,7 +1482,7 @@
   .countdown-container {
     flex-wrap: nowrap;
     gap: 4px;
-    margin-top: 0;
+    margin-top: 6px;
   }
 
   .countdown-box {
