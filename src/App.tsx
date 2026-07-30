@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import { supabase } from './supabase';
-import gfsLogo from './assets/GFS_logo.png';
+import gfsLogo from '../Assets/Images/GFS_logo.png';
 
 interface TimeLeft {
   days: number;
@@ -10,8 +10,8 @@ interface TimeLeft {
   seconds: number;
 }
 
-const launchDate = new Date('2026-08-01T00:00:00');
-const launchDateLabel = 'AUGUST 1, 2026';
+const launchDate = new Date('2026-10-02T00:00:00');
+const launchDateLabel = 'OCTOBER 2, 2026';
 
 function App() {
   const [email, setEmail] = useState('');
@@ -160,14 +160,6 @@ function App() {
 
   return (
     <div className="landing-container">
-      {/* SVG Filter for thinning the logo outline */}
-      <svg className="hidden-filter-svg" aria-hidden="true">
-        <defs>
-          <filter id="erode-filter">
-            <feMorphology operator="erode" radius="0.5" in="SourceGraphic" />
-          </filter>
-        </defs>
-      </svg>
       {/* Background layer */}
       <div className="background-wrapper">
         <div className="sky"></div>
@@ -178,9 +170,8 @@ function App() {
       <div className={`content-wrapper ${isSubmitted ? 'submitted' : ''}`}>
         {isSubmitted ? (
           <div className="confirmation-wrapper">
-            <div className="logo-area logo-submitted logo-tm-container">
+            <div className="logo-area logo-submitted">
               <img src={gfsLogo} alt="Ground Force Software Logo" className="logo-image" />
-              <span className="logo-tm">™</span>
             </div>
 
             <div className="conf-text-section seq-1">
@@ -260,90 +251,105 @@ function App() {
           <>
             <div className="above-divider">
               {/* Logo Section */}
-              <div className="logo-area logo-tm-container">
+              <div className="logo-area">
                 <img src={gfsLogo} alt="Ground Force Software Logo" className="logo-image" />
-                <span className="logo-tm">™</span>
               </div>
-              <p className="logo-tagline">One platform. More profit. Less software.</p>
-
-              {/* New Hero Headline */}
               <div className="hero-headline">
-                <div className="hero-top-lines">
-                  <h1 className="hero-title-sub">RUN YOUR ENTIRE LANDSCAPING BUSINESS</h1>
-                  <h1 className="hero-title-sub">FROM ONE PLATFORM</h1>
-                </div>
-                <h1 className="hero-title-main">WITHOUT THE PER-USER COST</h1>
+                <h1 className="hero-title-software">LANDSCAPING OPERATIONS SOFTWARE</h1>
+                <h1 className="hero-title-speed">REBUILT FOR SPEED</h1>
+                <p className="hero-title-cost">WITHOUT THE PER-USER COST</p>
               </div>
 
               {/* Value Proposition Grid */}
-              <p className={`guidance-text ${!selectedAudience ? 'guidance-pulse' : ''}`}>CLICK WHICH BEST DESCRIBES YOU</p>
+              <p className={`guidance-text ${!selectedAudience ? 'guidance-pulse' : ''}`}>WHICH BEST DESCRIBES YOU?</p>
               <div className="value-grid">
                 <div
                   className={`value-card ${selectedAudience === 'businesses' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'businesses' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('businesses')}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      handleAudienceChange('businesses');
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <h3 className="card-title">LANDSCAPING PRO</h3>
-                  <p className="card-desc">
-                    &#10003; Replace multiple subscriptions<br />
-                    &#10003; Measure &amp; estimate remotely<br />
-                    &#10003; Schedule crews<br />
-                    &#10003; Grow with your community
-                  </p>
+                  <h3 className="card-title">SERVICE PROVIDER</h3>
+                  <ul className="card-list">
+                    <li>Measure remotely, estimate faster</li>
+                    <li>Schedule smarter</li>
+                    <li>Grow your business with personalized support</li>
+                  </ul>
                   {selectedAudience === 'businesses' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
                 <div
                   className={`value-card ${selectedAudience === 'owners' ? 'active' : ''} ${selectedAudience && selectedAudience !== 'owners' ? 'unselected' : ''} ${!selectedAudience ? 'awaiting' : ''}`}
                   onClick={() => handleAudienceChange('owners')}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      handleAudienceChange('owners');
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
-                  <h3 className="card-title">HOMEOWNER</h3>
-                  <p className="card-desc">
-                    &#10003; Find trusted local pros<br />
-                    &#10003; Request estimates<br />
-                    &#10003; Track projects<br />
-                    &#10003; Join your local community
-                  </p>
+                  <h3 className="card-title">PROPERTY OWNER</h3>
+                  <ul className="card-list">
+                    <li>Find local professionals</li>
+                    <li>Request accurate estimates</li>
+                    <li>Plan your project with confidence</li>
+                  </ul>
                   {selectedAudience === 'owners' && <span className="selected-badge">✓ SELECTED</span>}
                 </div>
               </div>
             </div>
 
-            {/* Divider */}
-            <div className="divider">
-              <div className="divider-line left"></div>
-              <svg className="divider-hex" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M50 2.5 L97.5 30 L97.5 85 L50 112.5 L2.5 85 L2.5 30 Z"
-                  fill="none"
-                  stroke="#00ff88"
-                  strokeWidth="6"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="divider-line right"></div>
-            </div>
+            <div className="launch-stack">
+              {/* Divider */}
+              <div className="divider">
+                <div className="divider-line left"></div>
+                <svg className="divider-hex" viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M50 2.5 L97.5 30 L97.5 85 L50 112.5 L2.5 85 L2.5 30 Z"
+                    fill="none"
+                    stroke="#00ff88"
+                    strokeWidth="6"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <div className="divider-line right"></div>
+              </div>
 
-            {/* Launch Info */}
-            <div className="launching-text">LAUNCHING</div>
-            <h3 className="launch-date">{launchDateLabel}</h3>
-            {selectedAudience === 'businesses' && <p className="founders-hint">Early sign-ups unlock Founders Club access</p>}
+              {/* Launch Info */}
+              <div className="launching-text">LAUNCHING</div>
+              <h3 className="launch-date">{launchDateLabel}</h3>
+              <p
+                className={`founders-hint ${selectedAudience === 'businesses' ? 'is-visible' : ''}`}
+                aria-hidden={selectedAudience !== 'businesses'}
+              >
+                Early sign-ups unlock Founders Club access
+              </p>
 
-            {/* Countdown */}
-            <div className="countdown-container">
-              <div className="countdown-box">
-                <span className="countdown-value">{pad(timeLeft.days)}</span>
-                <span className="countdown-label">Days</span>
-              </div>
-              <div className="countdown-box">
-                <span className="countdown-value">{pad(timeLeft.hours)}</span>
-                <span className="countdown-label">Hours</span>
-              </div>
-              <div className="countdown-box">
-                <span className="countdown-value">{pad(timeLeft.minutes)}</span>
-                <span className="countdown-label">Minutes</span>
-              </div>
-              <div className="countdown-box">
-                <span className="countdown-value">{pad(timeLeft.seconds)}</span>
-                <span className="countdown-label">Seconds</span>
+              {/* Countdown */}
+              <div className="countdown-container">
+                <div className="countdown-box">
+                  <span className="countdown-value">{pad(timeLeft.days)}</span>
+                  <span className="countdown-label">Days</span>
+                </div>
+                <div className="countdown-box">
+                  <span className="countdown-value">{pad(timeLeft.hours)}</span>
+                  <span className="countdown-label">Hours</span>
+                </div>
+                <div className="countdown-box">
+                  <span className="countdown-value">{pad(timeLeft.minutes)}</span>
+                  <span className="countdown-label">Minutes</span>
+                </div>
+                <div className="countdown-box">
+                  <span className="countdown-value">{pad(timeLeft.seconds)}</span>
+                  <span className="countdown-label">Seconds</span>
+                </div>
               </div>
             </div>
             {/* Footer / Input Section */}
@@ -352,7 +358,7 @@ function App() {
                 <div className="email-capture">
                   <input
                     type="email"
-                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : selectedAudience === 'owners' ? 'ENTER YOUR EMAIL' : 'SELECT AN OPTION ABOVE FIRST'}
+                    placeholder={selectedAudience === 'businesses' ? 'ENTER YOUR BUSINESS EMAIL' : selectedAudience === 'owners' ? 'ENTER YOUR EMAIL' : 'SELECT A ROLE ABOVE'}
                     className={`email-input ${!selectedAudience ? 'locked' : ''}`}
                     value={email}
                     onChange={handleEmailChange}
@@ -372,8 +378,12 @@ function App() {
                 </div>
                 {status === 'needsSelection' && <p className="status-msg prompt">Choose the option above that fits you best first.</p>}
                 {status === 'error' && <p className="status-msg error">Please enter your email.</p>}
-                {selectedAudience === 'businesses' && <p className="micro-copy tailored-text">TAILORED FOR OUTDOOR SERVICE PROVIDERS</p>}
-                {selectedAudience === 'owners' && <p className="micro-copy tailored-text">Tailored for property owners</p>}
+                <p
+                  className={`micro-copy tailored-text ${selectedAudience ? 'is-visible' : ''}`}
+                  aria-hidden={!selectedAudience}
+                >
+                  {selectedAudience === 'businesses' ? 'TAILORED FOR OUTDOOR SERVICE PROVIDERS' : 'Tailored for property owners'}
+                </p>
                 <p className="micro-copy">One email. First look. No spam.</p>
               </form>
             </div>
